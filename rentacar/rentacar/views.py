@@ -1,8 +1,26 @@
-from rest_framework import status, views
+from rest_framework import status, views,generics
+from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .serializers import UserSerializer, CarSerializer, ReservationSerializer
 from .models import Customer, Car, Reservation
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
+
+
+@api_view(['GET'])
+def available_cars(request):
+    start_date = request.query_params.get('start_date')
+    end_date = request.query_params.get('end_date')
+    
+    if not start_date or not end_date:
+        return Response({"error": "start_date ve end_date gereklidir."}, status=400)
+
+    reserved_cars = Reservation.objects.filter(
+        start_date__lte=end_date, end_date__gte=start_date
+    ).values_list('car_id', flat=True)
+    
+    available_cars = Car.objects.exclude(id__in=reserved_cars)
+    serializer = CarSerializer(available_cars, many=True)
+    return Response(serializer.data)
 
 class CustomerListView(views.APIView):
     permission_classes = [IsAuthenticated, IsAdminUser]

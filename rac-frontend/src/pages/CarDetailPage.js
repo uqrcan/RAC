@@ -32,17 +32,25 @@ const CarDetailPage = () => {
   }
 
   return (
-    <div>
+    <div className="container mt-5">
       {car ? (
-        <div>
-          <img src={car.image} alt={car.name} style={{ maxWidth: "100%" }} />
-          <p>Marka: {car.brand}</p>
-          <p>Model: {car.model}</p>
-          <p>Fiyat: Günlük / {car.rent_per_day} TL</p>
-          <p>Vites: {car.gear}</p>
+        <div className="card text-white bg-dark">
+          <img
+            src={car.image}
+            className="card-img-top"
+            alt={car.name}
+            style={{ height: "500px", objectFit: "cover" }}
+          />
+          <div className="card-body">
+            <h5 className="card-title">Araç Detayı</h5>
+            <p className="card-text">Marka: {car.brand}</p>
+            <p className="card-text">Model: {car.model}</p>
+            <p className="card-text">Fiyat: Günlük / {car.rent_per_day} TL</p>
+            <p className="card-text">Vites: {car.gear}</p>
+          </div>
         </div>
       ) : (
-        <p>Araba bulunamadı.</p>
+        <p className="text-white">Araba bulunamadı.</p>
       )}
     </div>
   );

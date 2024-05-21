@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import CustomerListView, CustomerDetailView, CarListView, CarDetailView, ReservationListView, ReservationDetailView
+from .views import CustomerListView, CustomerDetailView, CarListView, CarDetailView, ReservationListView, ReservationDetailView, available_cars
 
 urlpatterns = [
     
@@ -14,4 +14,7 @@ urlpatterns = [
     # Reservation URLs
     path('reservations/', ReservationListView.as_view(), name='reservation-list'),
     path('reservations/<int:pk>/', ReservationDetailView.as_view(), name='reservation-detail'),
+
+    # Available cars URL
+    path('available-cars/', available_cars, name='available-cars'),
 ]

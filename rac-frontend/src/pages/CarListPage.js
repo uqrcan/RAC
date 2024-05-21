@@ -36,17 +36,24 @@ const CarListPage = () => {
   }
 
   return (
-    <div className="container">
-      <h2>Arabalar</h2>
+    <div className="container mt-5">
+      <h2 className="text-white">Arabalar</h2>
       <div className="row">
         {cars.map((car) => (
           <div key={car.id} className="col-md-4">
-            <div className="card mb-4" onClick={() => handleCarClick(car.id)}>
-              <img src={car.image} className="card-img-top" alt={car.name} />
+            <div
+              className="card mb-4 bg-dark text-white"
+              onClick={() => handleCarClick(car.id)}
+            >
+              <img
+                src={car.image}
+                className="card-img-top"
+                alt={car.name}
+                style={{ height: "200px", objectFit: "cover" }}
+              />
               <div className="card-body">
                 <h5 className="card-title">
-                  {car.brand}&nbsp;
-                  {car.model}
+                  {car.brand} {car.model}
                 </h5>
                 <p className="card-text">
                   <strong>Yıl:</strong> {car.year}

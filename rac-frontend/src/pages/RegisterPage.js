@@ -20,12 +20,12 @@ const RegisterPage = () => {
   };
 
   return (
-    <div className="container">
-      <h2>Kayıt Ol</h2>
+    <div className="container mt-5">
+      <h2 className="text-white">Kayıt Ol</h2>
       {error && <p className="text-danger">{error}</p>}
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label>İsim</label>
+          <label className="text-white">İsim</label>
           <input
             type="text"
             className="form-control"
@@ -35,7 +35,7 @@ const RegisterPage = () => {
           />
         </div>
         <div className="form-group">
-          <label>Email</label>
+          <label className="text-white">Email</label>
           <input
             type="email"
             className="form-control"
@@ -45,7 +45,7 @@ const RegisterPage = () => {
           />
         </div>
         <div className="form-group">
-          <label>Şifre</label>
+          <label className="text-white">Şifre</label>
           <input
             type="password"
             className="form-control"
@@ -54,7 +54,7 @@ const RegisterPage = () => {
             required
           />
         </div>
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="btn btn-primary mt-3">
           Kayıt Ol
         </button>
       </form>

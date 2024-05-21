@@ -19,12 +19,12 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="container">
-      <h2>Giriş Yap</h2>
+    <div className="container mt-5">
+      <h2 className="text-white">Giriş Yap</h2>
       {error && <p className="text-danger">{error}</p>}
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label>Email</label>
+          <label className="text-white">Email</label>
           <input
             type="email"
             className="form-control"
@@ -34,7 +34,7 @@ const LoginPage = () => {
           />
         </div>
         <div className="form-group">
-          <label>Şifre</label>
+          <label className="text-white">Şifre</label>
           <input
             type="password"
             className="form-control"
@@ -43,7 +43,7 @@ const LoginPage = () => {
             required
           />
         </div>
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="btn btn-primary mt-3">
           Giriş Yap
         </button>
       </form>
